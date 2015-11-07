@@ -1,7 +1,8 @@
 <?php
-	require '../php/Product.class.php';
-	require '../php/Cloth.class.php';
-	require '../php/Utility.class.php';
+
+	require_once '../php/Product.class.php';
+	require_once '../php/Cloth.class.php';
+	require_once '../php/Utility.class.php';
 
 	$db = new Utility();
 ?>

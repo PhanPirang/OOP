@@ -63,64 +63,7 @@
 			</div>
 			<!-- End Switcher -->
 
-			<header id="header">
-				<div class="header-top">
-					<div class="container">
-  					<ul class="nav nav-pills nav-top navbar-right">
-  						<li class="dropdown langs">
-  							<a data-toggle="dropdown" class="dropdown-toggle" href="#"><img src="images/arabic.png" alt="arabic"> <i class="fa fa-angle-down"></i></a>
-  							<ul role="menu" class="dropdown-menu">
-  								<li><a href="#"><img src="images/uk.png" alt="uk"></a></li>
-  								<li><a href="#"><img src="images/dutch.png" alt="dutch"></a></li>
-  								<li><a href="#"><img src="images/german.png" alt="german"></a></li>
-  							</ul>
-  						</li>
-  						<li class="dropdown currency">
-  							<a data-toggle="dropdown" class="dropdown-toggle" href="#"><i class="fa fa-usd"></i> <i class="fa fa-angle-down"></i></a>
-  							<ul role="menu" class="dropdown-menu">
-  								<li><a href="#"><i class="fa fa-eur"></i></a></li>
-                  				<li><a href="#"><i class="fa fa-jpy"></i></a></li>
-  							</ul>
-  						</li>
-  						<li class="dropdown my-account">
-  							<a data-toggle="dropdown" class="dropdown-toggle" href="#">My Account <i class="fa fa-angle-down"></i></a>
-  							<ul role="menu" class="dropdown-menu">
-  								<li><a href="#">Dashboard</a></li>
-  								<li><a href="#">Account</a></li>
-  								<li><a href="#">Orders</a></li>
-  							</ul>
-  						</li>
-		              <li class="dropdown my-cart">
-		                <a data-toggle="dropdown" class="dropdown-toggle" href="#"><i class="fa fa-shopping-cart"></i></a>
-		                <ul role="menu" class="dropdown-menu header-cart_product_list">
-		                    <li class="added-items">
-		                      <div class="header-cart_product_list_item clearfix">
-		                        <a class="item-preview" href="product-details.html"><img src="images/cart-img-1.jpg" alt="Product"></a>
-		                        <h4><a class="font-additional font-weight-normal hover-focus-color cart-product-title" href="product-details.html">Stylish Wear</a></h4>
-		                        <span class="item-cat font-main font-weight-normal"><a class="hover-focus-color cart-product-category" href="#">Men</a></span>
-		                        <span class="item-price font-additional font-weight-normal customColor">37.15 USD</span>
-		                        <a class="item-del hover-focus-color" href="#"><i class="fa fa-trash-o"></i></a>
-		                      </div>
-		                    </li>
-		                    <li class="added-items">
-		                      <div class="header-cart_product_list_item clearfix">
-		                        <a class="item-preview" href="product-details.html"><img src="images/cart-img-2.jpg" alt="Product"></a>
-		                        <h4><a class="font-additional font-weight-normal hover-focus-color cart-product-title" href="product-details.html">Bag</a></h4>
-		                        <span class="item-cat font-main font-weight-normal"><a class="hover-focus-color cart-product-category" href="#">Accessories</a></span>
-		                        <span class="item-price font-additional font-weight-normal customColor">60.10 USD</span>
-		                        <a class="item-del hover-focus-color" href="#"><i class="fa fa-trash-o"></i></a>
-		                      </div>
-		                    </li>
-		                  </ul>
-		              </li>
-  					</ul>            
-					</div> 
-          <div class="container-fluid trigger-container">
-            <div class="row text-center">
-              <button class="menu-trigger"><i class="fa fa-bars"></i></button>
-            </div>
-          </div>         
-				</div>
+			<header id="header">   
 				<div class="header-middle">
 					<div class="container relative">
 						<a href="index.html" class="logo pull-left"></a>
@@ -162,60 +105,12 @@
               </a>
             </li>
             <li class="lightli">                                 
-              <a href="#">
-                <i class="fa fa-user fa-lg"></i>
-                <span class="nav-text">My Account</span>
-              </a>
-            </li>
-            <li class="lightli">                                 
               <a href="contact.html">
                 <i class="fa fa-envelope-o fa-lg"></i>
                 <span class="nav-text">Contact</span>
               </a>
             </li>
-            
-              <li class="darkerli">
-                <a href="category.html">
-                  <i class="fa fa-shopping-cart"></i>
-                   <span class="nav-text">Shop</span>
-                </a>
-              </li>
-              <li class="darkerli">
-                <a href="category.html">
-                  <i class="fa fa-male fa-lg"></i>
-                  <span class="nav-text">Men</span>
-                </a>
-              </li>
-              <li class="darkerli">
-                <a href="category-1.html">
-                  <i class="fa fa-female fa-lg"></i>
-                  <span class="nav-text">Women</span>
-                </a>
-              </li>
-              <li class="darkerli">
-                <a href="category.html">
-                  <i class="fa fa-picture-o fa-user-secret"></i>
-                  <span class="nav-text">shoes</span>
-                </a>
-              </li>
-              <li class="darkerli">
-                <a href="product-details.html">
-                  <i class="fa fa-picture-o fa-newspaper-o"></i>
-                  <span class="nav-text">Detail</span>
-                </a>
-              </li>
-              <li class="darkerli">
-                <a href="product-details-1.html">
-                  <i class="fa fa-picture-o fa-building"></i>
-                  <span class="nav-text">Detail-1</span>
-                </a>
-              </li>
-              <li class="darkerli">
-                <a href="blog.html">
-                  <i class="fa fa-pencil-square-o fa-lg"></i>
-                  <span class="nav-text">Blog</span>
-                </a>
-              </li>
+
                                  
           </ul>
         </div>
@@ -274,119 +169,6 @@
 					</div>
 				</div>
 			</section>
-
-			<!-- <section id="collection" class="borderTopSeparator">
-				<div class="container relative">
-					
-					<div class="isotopeBox">
-						<h2 class="title font-additional font-weight-bold text-uppercase wow fadeInUp" data-wow-duration="2s">BEST SELLERS</h2>
-						<span class="subTitle font-additional font-weight-normal text-uppercase wow fadeIn" data-wow-duration="2s">NEW ARRIVAL / TRENDY COLLECTION</span>
-						<div class="line-seperatorBox clearfix">
-							<div class="line-seperator">
-								<img src="images/seperator.png" alt="seperator">
-							</div>
-							<ul id="filter" class="product-filter clearfix">
-								<li>
-									<a href="#" class="current btn font-additional font-weight-normal text-uppercase before-bg hvr-bounce-to-right" data-filter=".newproducts">NEW PRODUCTS</a>
-								</li>
-								<li>
-									<a href="#" class="btn font-additional font-weight-normal text-uppercase before-bg hvr-bounce-to-right" data-filter=".popular">POPULAR</a>
-								</li>
-								<li>
-									<a href="#" class="btn font-additional font-weight-normal text-uppercase before-bg hvr-bounce-to-right" data-filter=".discount">DISCOUNT</a>
-								</li>
-							</ul>
-							<div class="isotope-frame">
-								<div class="isotope-filter">
-									<div class="isotope-item  newproducts discount">
-										<div class="product-item hvr-underline-from-center">
-											<div class="product-item_body">
-												<img class="product-item_image" src="images/products/4.jpg" alt="Product">
-												<a class="product-item_link" href="product-details.html">
-													<span class="product-item_sale color-main font-additional customBgColor circle">-15%</span>
-												</a>
-												<div class="product-sidebar">
-						                          <a href="#" class="buy">
-						                            <span>BUY ITEM</span>
-						                          </a>
-			
-						                          <a href="product-details.html" class="info">
-						                            <span>QUICK VIEW</span>
-						                          </a>
-			
-						                          <a href="#" class="favorites">
-						                            <span>ADD TO FAVORITE</span>
-						                          </a>
-						                        </div> 
-											</div>
-											<a href="product-details.html" class="product-item_footer">
-												<div class="product-item_title font-additional font-weight-bold text-center text-uppercase">WOMEN CAP</div>
-												<div class="product-item_price font-additional font-weight-normal customColor">$240.00 <span>$265.00</span></div>
-											</a>
-										</div>
-									</div>
-									<div class="isotope-item  newproducts popular">
-										<div class="product-item hvr-underline-from-center">
-											<div class="product-item_body">
-												<img class="product-item_image" src="images/products/5.jpg" alt="Product">
-												<a class="product-item_link" href="product-details.html">
-													<span class="product-item_new color-main font-additional text-uppercase circle">new</span>
-												</a>
-												<div class="product-sidebar">
-						                          <a href="#" class="buy">
-						                            <span>BUY ITEM</span>
-						                          </a>
-			
-						                          <a href="product-details.html" class="info">
-						                            <span>QUICK VIEW</span>
-						                          </a>
-			
-						                          <a href="#" class="favorites">
-						                            <span>ADD TO FAVORITE</span>
-						                          </a>
-						                        </div> 
-											</div>
-											<a href="product-details.html" class="product-item_footer">
-												<div class="product-item_title font-additional font-weight-bold text-center text-uppercase">BLACK DRESS</div>
-												<div class="product-item_price font-additional font-weight-normal customColor">$560.00</div>
-											</a>
-										</div>
-									</div>
-			
-					                  <div class="isotope-item  newproducts">
-					                    <div class="product-item hvr-underline-from-center">
-					                      <div class="product-item_body">
-					                        <img class="product-item_image" src="images/products/8.jpg" alt="Product">
-					                        <a class="product-item_link" href="product-details.html">
-					                          <span class="product-item_sale color-main font-additional customBgColor circle">-10%</span>
-					                        </a>
-					                        <div class="product-sidebar">
-					                          <a href="#" class="buy">
-					                            <span>BUY ITEM</span>
-					                          </a>
-			
-					                          <a href="product-details.html" class="info">
-					                            <span>QUICK VIEW</span>
-					                          </a>
-			
-					                          <a href="#" class="favorites">
-					                            <span>ADD TO FAVORITE</span>
-					                          </a>
-					                        </div> 
-					                      </div>
-					                      <a href="product-details.html" class="product-item_footer">
-					                        <div class="product-item_title font-additional font-weight-bold text-center text-uppercase">GRAY COAT</div>
-					                        <div class="product-item_price font-additional font-weight-normal customColor">$260.00 <span>$220.00</span></div>
-					                      </a>
-					                    </div>
-					                  </div>
-			
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</section> -->
 
 			<section id="slider" class="slider-container">
 				<div class="container">

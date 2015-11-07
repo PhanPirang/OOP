@@ -43,8 +43,10 @@
 			$result = $this->con->query($sql);
 			if (strpos(strtolower($sql), 'select') !== false){
 				$rows = array();
-				while($row = $result->fetch_assoc()) {
-			        $rows[] = $row;
+				if ($result != null || $result != "") {
+					while($row = $result->fetch_assoc()) {
+			        	$rows[] = $row;
+			        }
 			    }
 			    return $rows;
 			}
@@ -98,6 +100,45 @@
 				return true;
 			}
 			return false;
+		}
+
+
+
+
+		public function isValidUser ($un, $pwd)
+		{
+			$pwd = md5($pwd);
+			$sql = "select * from users where username = '$un' and password='$pwd'";
+			$arr = $this->query($sql);
+			if ($arr != null || $arr != "") {
+				return true;
+			}
+			return false;
+		}
+
+		public function isLogin()
+		{
+			session_start();
+			if(isset($_SESSION["un"])){
+				return true;
+			}
+			return false;
+		}
+
+		public function isAuthenticate()
+		{
+			if(!isLogin()){
+				if(isset($_COOKIE['username']) && isset($_COOKIE['password'])){
+					$un = $_COOKIE['username'];
+					$pwd = $_COOKIE['password'];
+					if(isValidUser($un, $pwd)){
+						session_start();
+						$_SESSION["un"] = $un;
+					}
+				}else{
+					header('Location: login.php');
+				}
+			}
 		}
 
 }

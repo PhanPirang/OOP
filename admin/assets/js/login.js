@@ -148,7 +148,7 @@ var Login = function() {
 	/* * * * * * * * * * * *
 	 * Validation for Login
 	 * * * * * * * * * * * */
-	var initLoginValidation = function() {
+	/*var initLoginValidation = function() {
 		if ($.validator) {
 			$('.login-form').validate({
 				invalidHandler: function (event, validator) { // display error alert on form submit
@@ -165,7 +165,7 @@ var Login = function() {
 				}
 			});
 		}
-	}
+	}*/
 
 	/* * * * * * * * * * * *
 	 * Validation for Forgot Password
@@ -225,7 +225,7 @@ var Login = function() {
 
 			// Validations
 			initValidationDefaults(); // Extending jQuery Validation defaults
-			initLoginValidation(); // Validation for Login (Sign In)
+			//initLoginValidation(); // Validation for Login (Sign In)
 			initForgotPasswordValidation(); // Validation for the Password-Forgotten-Widget
 			initRegisterValidation(); // Validation for Registering (Sign Up)
 		},

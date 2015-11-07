@@ -1,3 +1,7 @@
+<?php
+	require '../php/Authentication.class.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -56,7 +60,7 @@
 	$(document).ready(function(){
 		"use strict";
 
-		Login.init(); // Init login JavaScript
+		//Login.init(); // Init login JavaScript
 	});
 	</script>
 </head>
@@ -73,7 +77,7 @@
 	<div class="box">
 		<div class="content">
 			<!-- Login Formular -->
-			<form class="form-vertical login-form" action="index.html" method="post">
+			<form class="form-vertical login-form" action="login.php" method="post">
 				<!-- Title -->
 				<h3 class="form-title">Sign In to your Account</h3>
 
@@ -103,7 +107,7 @@
 				<!-- Form Actions -->
 				<div class="form-actions">
 					<label class="checkbox pull-left"><input type="checkbox" class="uniform" name="remember"> Remember me</label>
-					<button type="submit" class="submit btn btn-primary pull-right">
+					<button type="submit" class="submit btn btn-primary pull-right" name="btn_submit">
 						Sign In <i class="icon-angle-right"></i>
 					</button>
 				</div>
@@ -111,7 +115,7 @@
 			<!-- /Login Formular -->
 
 			<!-- Register Formular (hidden by default) -->
-			<form class="form-vertical register-form" action="index.html" method="post" style="display: none;">
+			<form class="form-vertical register-form" action="login.php" method="post" style="display: none;">
 				<!-- Title -->
 				<h3 class="form-title">Sign Up for Free</h3>
 
@@ -197,24 +201,6 @@
 	</div>
 	<!-- /Login Box -->
 
-	<!-- Single-Sign-On (SSO) -->
-	<div class="single-sign-on">
-		<span>or</span>
-
-		<button class="btn btn-facebook btn-block">
-			<i class="icon-facebook"></i> Sign in with Facebook
-		</button>
-
-		<button class="btn btn-twitter btn-block">
-			<i class="icon-twitter"></i> Sign in with Twitter
-		</button>
-
-		<button class="btn btn-google-plus btn-block">
-			<i class="icon-google-plus"></i> Sign in with Google
-		</button>
-	</div>
-	<!-- /Single-Sign-On (SSO) -->
-
 	<!-- Footer -->
 	<div class="footer">
 		<a href="#" class="sign-up">Don't have an account yet? <strong>Sign Up</strong></a>
@@ -222,3 +208,38 @@
 	<!-- /Footer -->
 </body>
 </html>
+
+<?php	
+	if(isset($_POST['btn_submit']))
+	{
+		$un = $_POST['username'];
+		$pwd = $_POST['password'];
+		$valid = Authentication::isValidUser($un, $pwd);
+		if($valid)
+		{
+			if(isset($_POST['chkrem']) && ($_POST['chkrem'] == true)){
+				setcookie("username", $un, time() + 3600, '/');
+				setcookie("password", md5($pwd), time()+3600, '/');
+			}
+			// session_start();
+			$_SESSION["un"] = $un;
+//			header('Location: index.html');
+			//echo "<script>window.location.href = 'index.html';</script>";
+			exit();
+		}
+		else
+		{
+			echo "<script>alert('');</script>";
+			$error = 1;
+		}
+	}
+
+	if(isset($_GET['action']) && $_GET['action'] == "logout")
+	{
+		setcookie("username", "", time() - 3600, '/');
+		setcookie("password", "", time() - 3600, '/');
+		session_start();
+		session_unset();
+		session_destroy();
+	}
+?>
