@@ -62,6 +62,12 @@
 	<script type="text/javascript" src="plugins/slimscroll/jquery.slimscroll.min.js"></script>
 	<script type="text/javascript" src="plugins/slimscroll/jquery.slimscroll.horizontal.min.js"></script>
 
+	<!-- DataTables -->
+	<script type="text/javascript" src="plugins/datatables/jquery.dataTables.min.js"></script>
+	<script type="text/javascript" src="plugins/datatables/tabletools/TableTools.min.js"></script> <!-- optional -->
+	<script type="text/javascript" src="plugins/datatables/colvis/ColVis.min.js"></script> <!-- optional -->
+	<script type="text/javascript" src="plugins/datatables/DT_bootstrap.js"></script>
+
 	<!-- App -->
 	<script type="text/javascript" src="assets/js/app.js"></script>
 	<script type="text/javascript" src="assets/js/plugins.js"></script>
@@ -139,22 +145,21 @@
 				<!--=== Navigation ===-->
 				<ul id="nav">
 					<li class="current">
-						<a href="index.html">
-							<i class="icon-dashboard"></i>
-							Entry #1
-						</a>
-					</li>
-					<li>
 						<a href="javascript:void(0);">
-							<i class="icon-desktop"></i>
-							Entry #2
-							<span class="label label-info pull-right">6</span>
+							<i class="icon-edit"></i>
+							Products
 						</a>
 						<ul class="sub-menu">
 							<li>
-								<a href="ui_general.html">
+								<a href="list_product.php">
 								<i class="icon-angle-right"></i>
-								Entry #2.1
+								List All Products
+								</a>
+							</li>
+							<li>
+								<a href="add_product.php">
+								<i class="icon-angle-right"></i>
+								Add Product
 								</a>
 							</li>
 						</ul>
@@ -256,13 +261,12 @@
 
 <?php
 	if (isset($_POST['add_pro'])){
-		$name =$_POST["name"];
+		$name =$_POST['name'];
 		$price = $_POST['price'];
 		$discount = $_POST['discount'];
 		$cat_id = $_POST['category'];
 		$description = $_POST['description'];
-		$sql = "insert into tbl_product values (". $name . "," . $price . "," . $discount . "," . "1" . "," . "y" . "," . $description . "," . $cat_id . ")";
-		echo $sql;
+		$sql = "insert into tbl_product (name,price,discount,status,thumbnail,description,cat_id) values ('". $name . "'," . $price . "," . $discount . ",'" . "1" . "','" . "y" . "','" . $description . "'," . $cat_id . ")";
 		$db->query($sql);
 	}
 ?>

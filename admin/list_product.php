@@ -1,3 +1,11 @@
+<?php
+	require '../php/Product.class.php';
+	require '../php/Cloth.class.php';
+	require '../php/Utility.class.php';
+
+	$db = new Utility();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -53,6 +61,13 @@
 	<script type="text/javascript" src="plugins/cookie/jquery.cookie.min.js"></script>
 	<script type="text/javascript" src="plugins/slimscroll/jquery.slimscroll.min.js"></script>
 	<script type="text/javascript" src="plugins/slimscroll/jquery.slimscroll.horizontal.min.js"></script>
+
+
+	<!-- DataTables -->
+	<script type="text/javascript" src="plugins/datatables/jquery.dataTables.min.js"></script>
+	<script type="text/javascript" src="plugins/datatables/tabletools/TableTools.min.js"></script> <!-- optional -->
+	<script type="text/javascript" src="plugins/datatables/colvis/ColVis.min.js"></script> <!-- optional -->
+	<script type="text/javascript" src="plugins/datatables/DT_bootstrap.js"></script>
 
 	<!-- App -->
 	<script type="text/javascript" src="assets/js/app.js"></script>
@@ -132,22 +147,21 @@
 				<!--=== Navigation ===-->
 				<ul id="nav">
 					<li class="current">
-						<a href="index.html">
-							<i class="icon-dashboard"></i>
-							Entry #1
-						</a>
-					</li>
-					<li>
 						<a href="javascript:void(0);">
-							<i class="icon-desktop"></i>
-							Entry #2
-							<span class="label label-info pull-right">6</span>
+							<i class="icon-edit"></i>
+							Products
 						</a>
 						<ul class="sub-menu">
 							<li>
-								<a href="ui_general.html">
+								<a href="list_product.php">
 								<i class="icon-angle-right"></i>
-								Entry #2.1
+								List All Products
+								</a>
+							</li>
+							<li>
+								<a href="add_product.php">
+								<i class="icon-angle-right"></i>
+								Add Product
 								</a>
 							</li>
 						</ul>
@@ -183,27 +197,56 @@
 				<div class="page-header">
 					<div class="page-title">
 						<h3>Dashboard</h3>
-						<span>Good morning, John!</span>
 					</div>
 				</div>
 				<!-- /Page Header -->
 
-				<!--=== Page Content ===-->
+				<!--=== no-padding ===-->
 				<div class="row">
-					<!--=== Example Box ===-->
 					<div class="col-md-12">
 						<div class="widget box">
 							<div class="widget-header">
-								<h4><i class="icon-reorder"></i> Example Box</h4>
+								<h4><i class="icon-reorder"></i> All Products</h4>
+								<div class="toolbar no-padding">
+									<div class="btn-group">
+										<span class="btn btn-xs widget-collapse"><i class="icon-angle-down"></i></span>
+									</div>
+								</div>
 							</div>
-							<div class="widget-content">
-								<p>Lorem Ipsum.</p>
+							<div class="widget-content no-padding">
+								<table class="table table-striped table-bordered table-hover datatable">
+									<thead>
+										<tr>
+											<th>No</th>
+											<th>Product Name</th>
+											<th>Price</th>
+											<th>Discount</th>
+											<th>Status</th>
+											<th>Action</th>
+										</tr>
+									</thead>
+									<tbody>
+										<?php
+											foreach ($db->select("tbl_product") as $key => $value) {
+										?>
+											<tr>
+												<td><?php echo ($key + 1); ?></td>
+												<td><?php echo $value['name']; ?></td>
+												<td><?php echo $value['price']; ?></td>
+												<td><?php echo $value['discount']; ?></td>
+												<td><?php echo $value['status']; ?></td>
+												<td><span class="label label-success">Approved</span></td>
+											</tr>
+										<?php
+											}
+										?>
+									</tbody>
+								</table>
 							</div>
 						</div>
-					</div> <!-- /.col-md-12 -->
-					<!-- /Example Box -->
-				</div> <!-- /.row -->
-				<!-- /Page Content -->
+					</div>
+				</div>
+				<!-- /no-padding -->
 
 			</div>
 			<!-- /.container -->
