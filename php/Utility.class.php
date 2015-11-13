@@ -41,17 +41,18 @@
 		public function query($sql)
 		{
 			$result = $this->con->query($sql);
-			$this->num_rows = $result->num_rows;
-
 			if (strpos(strtolower($sql), 'select') !== false){
-					$this->result = $result->fetch_assoc();
-					return $this->result;
+				$rows = array();
+				while($row = $result->fetch_assoc()) {
+			        $rows[] = $row;
+			    }
+			    return $rows;
 			}
-			return $result->num_rows;	
+			return true;
 		}
 
 		// Work
-		public function select($table, $condition=""){
+		/*public function select($table, $condition=""){
 			$sql = "SELECT * FROM " . $table . " ". $condition;
 			$result = $this->con->query($sql);
 			$this->num_rows = $result->num_rows;
@@ -61,19 +62,33 @@
                 // output data of each row
                 while($row = $result->fetch_assoc()) {
                     $cloth = new Cloth();
-                    $cloth->id = row['id'];
-                    $cloth->name = row['name'];
-                    $cloth->price = row['price'];
-                    $cloth->discount = row['discount'];
-                    $cloth->status = row['status'];
-                    $cloth->thumbnail = row['thumbnail'];
-                    $cloth->cat_id = row['cat_id'];
-                    $cloth->description = row['description'];
+                    $cloth->setId($row['id']);
+                    $cloth->setName($row['name']);
+                    $cloth->setPrice($row['price']);
+                    $cloth->setDiscount($row['discount']);
+                    $cloth->setStatus($row['status']);
+                    $cloth->setThumbnail($row['thumbnail']);
+                    $cloth->setCat_id($row['cat_id']);
+                    $cloth->setDescription($row['description']);
                     $array->append($cloth);
                 }
                 return $array;
 			}
 			return null;
+		}*/
+
+		public function select($table, $condition=""){
+			$sql = "SELECT * FROM " . $table . " ". $condition;
+			$result = $this->con->query($sql);
+			$this->num_rows = $result->num_rows;
+			$rows = array();
+			if ($this->num_rows > 0) {
+                // output data of each row
+                while($row = $result->fetch_assoc()) {
+			        $rows[] = $row;
+			    }
+			}
+			return $rows;
 		}
 
 		// work
