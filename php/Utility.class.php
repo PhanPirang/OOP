@@ -1,6 +1,7 @@
 <?php
 
-	class Utility
+	require 'Db.interface.php';
+	class Utility implements Db
 	{
 		private $host;
 		private $username;
@@ -19,7 +20,7 @@
 		{
 			$this->host = "localhost";
 			$this->username = "root";
-			$this->password = "";
+			$this->password = "root";
 			$this->db = "master";
 			$this->con = new mysqli(
 				$this->host, 
@@ -142,15 +143,6 @@
 		}
 
 }
-
-
-
-
-
-
-
-
-
 
 
 ?>

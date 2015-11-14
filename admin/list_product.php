@@ -11,7 +11,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-	<title>Empty File | Melon - Flat &amp; Responsive Admin Template</title>
+	<title>All Products</title>
 
 	<!--=== CSS ===-->
 
@@ -175,28 +175,11 @@
 
 		<div id="content">
 			<div class="container">
-				<!-- Breadcrumbs line -->
-				<div class="crumbs">
-					<ul id="breadcrumbs" class="breadcrumb">
-						<li>
-							<i class="icon-home"></i>
-							<a href="index.html">Dashboard</a>
-						</li>
-						<li class="current">
-							<a href="calendar.html" title="">Calendar</a>
-						</li>
-					</ul>
-
-					<ul class="crumb-buttons">
-						<li><a href="charts.html" title=""><i class="icon-signal"></i><span>Statistics</span></a></li>
-					</ul>
-				</div>
-				<!-- /Breadcrumbs line -->
 
 				<!--=== Page Header ===-->
 				<div class="page-header">
 					<div class="page-title">
-						<h3>Dashboard</h3>
+						<h3>List of Products</h3>
 					</div>
 				</div>
 				<!-- /Page Header -->
@@ -232,10 +215,23 @@
 											<tr>
 												<td><?php echo ($key + 1); ?></td>
 												<td><?php echo $value['name']; ?></td>
-												<td><?php echo $value['price']; ?></td>
-												<td><?php echo $value['discount']; ?></td>
+												<td>$<?php echo $value['price']; ?></td>
+												<td><?php echo $value['discount']; ?>%</td>
 												<td><?php echo $value['status']; ?></td>
-												<td><span class="label label-success">Approved</span></td>
+												<td>
+													<form action="list_product.php" style="display:inline-block" method="post">
+														<button type="submit" name="btn-delete">
+															<span class="label label-danger">Delete</span>
+															<input type="hidden" name="id" value="<?php echo $value['id']; ?>">
+														</button>
+													</form>
+													<form action="list_product.php" style="display:inline-block" method="post">
+														<button type="submit" name="btn-update">
+															<span class="label label-info">Update</span>
+														</button>
+														<input type="hidden" name="id1" value="<?php echo $value['id']; ?>">
+													</form>
+												</td>
 											</tr>
 										<?php
 											}
@@ -253,6 +249,13 @@
 
 		</div>
 	</div>
-
 </body>
 </html>
+
+<?php
+	if(isset($_POST['btn-delete'])){
+		$id = $_POST['id'];
+		$db->delete("tbl_product", "WHERE id=".$id);
+	}
+?>
+
